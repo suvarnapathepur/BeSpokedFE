@@ -1,0 +1,28 @@
+<!-- <button (click) = "getproductlists()">products works!</button>
+<div>
+    <h1>Product List</h1>
+    <ul>
+        <li *ngFor="let product of products">
+            {{ product.name }} - {{ product.salePrice  }}
+        </li>
+    </ul>
+</div> -->
+
+
+<div class="container">
+    <h2 class="header">Products</h2>
+    <ul  *ngFor="let product of products">
+      <li>
+        <div class="product-item">
+          <div class="product-info">
+            <h3>Product Name: {{ product.name }}</h3>
+            <h3> Manu: {{ product.manufacturer }}</h3>
+            <p>Style: {{ product.style }}</p>
+            <p>Price: ${{ product.salePrice }}</p>
+            <p>Qty On Hand: {{ product.qtyOnHand }}</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+

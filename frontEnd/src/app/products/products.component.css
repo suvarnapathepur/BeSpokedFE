@@ -1,0 +1,36 @@
+div {
+    margin: 20px;
+}
+
+.container {
+    margin: 20px;
+  }
+  
+  .header {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .product-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-info h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  
+  .product-info p {
+    margin: 0;
+    color: #555;
+  }
+  
