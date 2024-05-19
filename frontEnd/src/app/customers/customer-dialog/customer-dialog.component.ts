@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Customer, CustomerService } from '../../services/customerservice';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-customer-dialog',
@@ -19,15 +20,13 @@ export class CustomerDialogComponent {
   customerForm: FormGroup;
   customerTest!: Customer;
 
-  constructor(private fb: FormBuilder, private customerService: CustomerService, private route: ActivatedRoute, private api: CustomerService) {
+  constructor(private fb: FormBuilder, private customerService: CustomerService, private route: ActivatedRoute,  private location: Location) {
     this.customerForm = this.fb.group({
-      name: ['', Validators.required],
-      manufacturer: ['', Validators.required],
-      style: ['', Validators.required],
-      purchasePrice: ['', Validators.required],
-      salePrice: ['', Validators.required],
-      qtyOnHand: ['', Validators.required],
-      commissionPercentage: ['', Validators.required]
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phone: ['', Validators.required],
+      address: ['', Validators.required],
+      startDate: ['', Validators.required]
     });
   }
 
@@ -37,7 +36,7 @@ export class CustomerDialogComponent {
 
   getCustomer() {
     const id = parseInt(this.route.snapshot.paramMap.get('id')!)
-    this.api.getCustomerById(id).subscribe(customer => {
+    this.customerService.getCustomerById(id).subscribe(customer => {
       this.customerTest = customer
       if (this.customerTest) {
         this.customerForm.patchValue(this.customerTest);
@@ -55,26 +54,12 @@ export class CustomerDialogComponent {
   onSave(): void {
     if (this.customerForm.valid && this.customerTest) {
       this.customerService.updateCustomer(this.customerTest.id, this.customerForm.value).subscribe(() => {
-        this.close.emit();
+        this.location.back();
       });
     }
   }
 
-  // ngOnChanges(): void {
-  //   if (this.product) {
-  //     this.productForm.patchValue(this.product);
-  //   }
-  // }
-
-  // onSave(): void {
-  //   if (this.productForm.valid && this.product) {
-  //     this.productService.updateProduct(this.product.id, this.productForm.value).subscribe(() => {
-  //       this.close.emit();
-  //     });
-  //   }
-  // }
-
   onCancel(): void {
-    this.close.emit();
+    this.location.back();
   }
 }

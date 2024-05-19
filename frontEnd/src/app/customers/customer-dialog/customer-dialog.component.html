@@ -1,1 +1,45 @@
-<p>customer-dialog works!</p>
+<div class=" border p-3 mt-4">
+    <h2 class="text-primary">Edit Customer</h2>
+    <div class=" border p-3 mt-4">
+      <form [formGroup]="customerForm" (ngSubmit)="onSave()">
+        <div class="mb-3 row">
+          <label class="pb-0">
+            First Name:
+            <input formControlName="firstName">
+          </label>
+        </div>
+        <div class="mb-3 row">
+          <label class="pb-0">
+            Last Name:
+            <input formControlName="lastName">
+          </label>
+        </div>
+        <div class="mb-3 row">
+          <label class="pb-0">
+            Phone:
+            <input formControlName="phone">
+          </label>
+        </div>
+        <div class="mb-3 row">
+          <label class="pb-0">
+            Address:
+            <input formControlName="address">
+          </label>
+        </div>
+        <div class="mb-3 row">
+          <label class="pb-0">
+            Start Date:
+            <input formControlName="startDate" type="date">
+          </label>
+        </div> 
+        <div class="row">
+          <div class="col-6 col-md-3">
+            <button type="button" (click)="onCancel()" class="btn btn-primary"> Back to List</button>
+          </div>
+          <div class="col-6 col-md-3">
+            <button type="submit"  (click)="onSave()"  class="btn btn-outline-secondary border">Save</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

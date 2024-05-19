@@ -1,0 +1,34 @@
+<div>
+    <h2>Salespersons</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Start Date</th>
+            <th>Manager</th>
+            <th>Termination Date</th>
+            <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let salesperson of salespersons">
+            <td>{{ salesperson.firstName }}</td>
+            <td>{{ salesperson.lastName }}</td>
+            <td>{{ salesperson.address }}</td>
+            <td>{{ salesperson.phone }}</td>
+            <td>{{ salesperson.startDate | date }}</td>
+            <td>{{ salesperson.manager }}</td>
+            <td>{{ salesperson.terminationDate }}</td>
+          <td>
+            <a routerLink="/salesperson/{{salesperson.id}}" class="btn btn-primary mr-1">Edit</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <app-product-edit-dialog *ngIf="isSelectedSalesPerson" [product]="selectedSalesPerson"
+      (close)="closeEditDialog()"></app-product-edit-dialog>
+  </div>
+
