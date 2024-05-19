@@ -1,7 +1,7 @@
 // src/app/product.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 
 export interface Product {
     id: number;
@@ -17,6 +17,7 @@ export interface Product {
 @Injectable({
     providedIn: 'root'
 })
+
 export class ProductService {
     private apiUrl = 'http://localhost:5095'
     private productUrl = '/api/Products'
@@ -41,6 +42,19 @@ export class ProductService {
     }
 
     deleteProduct(id: number): Observable<any> {
-        return this.http.delete<any>(`${this.apiProductUrl}/${id}`);
+        return this.http.delete<void>(`${this.apiProductUrl}/${id}`).pipe(
+        catchError(this.handleError));
     }
+
+
+private handleError(error: HttpErrorResponse): Observable<never> {
+    if (error.error instanceof ErrorEvent) {
+      // Client-side or network error occurred
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // Backend returned an unsuccessful response code
+      console.error(`Backend returned code ${error.status}, body was: ${error.error}`);
+    }
+    return throwError('Something bad happened; please try again later.');
+  }
 }

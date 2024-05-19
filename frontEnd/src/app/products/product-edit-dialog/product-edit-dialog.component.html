@@ -1,59 +1,64 @@
-<div class="modal-dialog">
-  <div class="modal-header">
-    <h5 class="modal-title"> Edit Dialog</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-  </div>
-    <!-- <h2>Edit Product</h2> -->
+<div class=" border p-3 mt-4">
+  <h2 class="text-primary">Edit Product</h2>
+  <div class=" border p-3 mt-4">
     <form [formGroup]="productForm" (ngSubmit)="onSave()">
-      <label>
-        Name:
-        <input formControlName="name">
-      </label>
-      <label>
-        Manufacturer:
-        <input formControlName="manufacturer">
-      </label>
-      <label>
-        Style:
-        <input formControlName="style">
-      </label>
-      <label>
-        Purchase Price:
-        <input formControlName="purchasePrice" type="number">
-      </label>
-      <label>
-        Sale Price:
-        <input formControlName="salePrice" type="number">
-      </label>
-      <label>
-        Quantity On Hand:
-        <input formControlName="qtyOnHand" type="number">
-      </label>
-      <label>
-        Commission Percentage:
-        <input formControlName="commissionPercentage" type="number">
-      </label>
-      <div>
+      <div class="mb-3 row">
+        <label class="pb-0">
+          Name:
+          <input formControlName="name">
+        </label>
+      </div>
+      <div class="mb-3 row">
+        <label class="pb-0">
+          Manufacturer:
+          <input formControlName="manufacturer">
+        </label>
+      </div>
+      <div class="mb-3 row">
+        <label class="pb-0">
+          Style:
+          <input formControlName="style">
+        </label>
+      </div>
+      <div class="mb-3 row">
+        <label class="pb-0">
+          Purchase Price:
+          <input formControlName="purchasePrice" type="number">
+        </label>
+      </div>
+      <div class="mb-3 row">
+        <label class="pb-0">
+          Sale Price:
+          <input formControlName="salePrice" type="number">
+        </label>
+      </div>
+      <div class="mb-3 row">
+        <label>
+          Quantity On Hand:
+          <input formControlName="qtyOnHand" type="number">
+        </label>
+      </div>
+      <div class="mb-3 row">
+        <label>
+          Commission Percentage:
+          <input formControlName="commissionPercentage" type="number">
+        </label>
+      </div>
+
+      <!-- <div>
         <button type="button" (click)="onCancel()">Cancel</button>
         <button type="submit" [disabled]="!productForm.valid">Save</button>
+      </div> -->
+
+
+      <div class="row">
+        <div class="col-6 col-md-3">
+          <button type="button" (click)="onCancel()" class="btn btn-primary"> Back to List</button>
+        </div>
+        <div class="col-6 col-md-3">
+          <button type="submit" [disabled]="!productForm.valid" (click)="onSave()"  class="btn btn-outline-secondary border">Save</button>
+        </div>
       </div>
     </form>
   </div>
-  
-  <!-- <div class="modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"> Edit Dialog</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
+</div>
