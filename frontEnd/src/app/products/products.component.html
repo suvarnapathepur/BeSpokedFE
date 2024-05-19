@@ -1,28 +1,64 @@
-<!-- <button (click) = "getproductlists()">products works!</button>
 <div>
-    <h1>Product List</h1>
-    <ul>
-        <li *ngFor="let product of products">
-            {{ product.name }} - {{ product.salePrice  }}
-        </li>
-    </ul>
-</div> -->
+  <h2>Product List</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Manufacturer</th>
+        <th>Style</th>
+        <th>Purchase Price</th>
+        <th>Sale Price</th>
+        <th>Quantity On Hand</th>
+        <th>Commission Percentage</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.name}}</td>
+        <td>{{product.manufacturer}}</td>
+        <td>{{product.style}}</td>
+        <td>{{product.purchasePrice}}</td>
+        <td>{{product.salePrice}}</td>
+        <td>{{product.qtyOnHand}}</td>
+        <td>{{product.commissionPercentage}}</td>
+        <td>
+          <button (click)="openEditDialog(product)" class="btn btn-primary mr-1">Edit</button>
+          <button (click)="deleteProduct(product.id)"class="btn btn-danger mr-1">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-product-edit-dialog *ngIf="isSelectedProduct" [product]="selectedProduct" (close)="closeEditDialog()"></app-product-edit-dialog>
+</div>
 
+<!-- 
+<div>
+  <button (click)="openAddEditDialog('Add')">Add Product</button>
+</div>
 
-<div class="container">
-    <h2 class="header">Products</h2>
-    <ul  *ngFor="let product of products">
-      <li>
-        <div class="product-item">
-          <div class="product-info">
-            <h3>Product Name: {{ product.name }}</h3>
-            <h3> Manu: {{ product.manufacturer }}</h3>
-            <p>Style: {{ product.style }}</p>
-            <p>Price: ${{ product.salePrice }}</p>
-            <p>Qty On Hand: {{ product.qtyOnHand }}</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Manufacturer</th>
+    <th>Style</th>
+    <th>Purchase Price</th>
+    <th>Sale Price</th>
+    <th>Qty On Hand</th>
+    <th>Commission Percentage</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let product of products">
+    <td>{{ product.name }}</td>
+    <td>{{ product.manufacturer }}</td>
+    <td>{{ product.style }}</td>
+    <td>{{ product.purchasePrice }}</td>
+    <td>{{ product.salePrice }}</td>
+    <td>{{ product.qtyOnHand }}</td>
+    <td>{{ product.commissionPercentage }}</td>
+    <td>
+      <button (click)="openAddEditDialog('Edit', product)" class="btn btn-light mr-1">Edit</button>
+      <button (click)="deleteProduct(product.id)"class="btn btn-light mr-1">Delete</button>
+    </td>
+  </tr>
+</table> -->
