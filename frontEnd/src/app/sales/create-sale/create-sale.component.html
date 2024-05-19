@@ -1,0 +1,31 @@
+<div>
+    <h2>Create Sale</h2>
+    <form (ngSubmit)="onCreate()">
+      <label for="productId">Product:</label>
+      <select id="productId" [(ngModel)]="sale.productId" name="productId">
+        <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+      </select>
+      
+      <label for="customerId">Customer:</label>
+      <select id="customerId" [(ngModel)]="sale.customerId" name="customerId">
+        <option *ngFor="let customer of customers" [value]="customer.id">{{ customer.firstName }} {{ customer.lastName }}</option>
+      </select>
+      
+      <label for="salespersonId">Salesperson:</label>
+      <select id="salespersonId" [(ngModel)]="sale.salespersonId" name="salespersonId">
+        <option *ngFor="let salesperson of salespersons" [value]="salesperson.id">{{ salesperson.firstName }} {{ salesperson.lastName }}</option>
+      </select>
+      
+      <label for="salesDate">Sales Date:</label>
+      <input type="date" id="salesDate" [(ngModel)]="sale.salesDate" name="salesDate">
+      
+      <label for="salePrice">Sale Price:</label>
+      <input type="number" id="salePrice" [(ngModel)]="sale.salePrice" name="salePrice">
+      
+      <label for="commission">Commission:</label>
+      <input type="number" id="commission" [(ngModel)]="sale.commission" name="commission">
+      
+      <button type="submit">Create</button>
+    </form>
+  </div>
+  

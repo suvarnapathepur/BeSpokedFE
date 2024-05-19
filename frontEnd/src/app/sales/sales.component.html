@@ -1,0 +1,31 @@
+<p>sales works!</p>
+<div>
+    <h2>Sales</h2>
+    <form (submit)="onFilter()">
+      <label for="startDate">Start Date:</label>
+      <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate">
+      <button type="submit">Filter</button>
+    </form>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Customer</th>
+          <th>Salesperson</th>
+          <th>Date</th>
+          <th>Commission</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sale of sales">
+          <td>{{ sale.product }}</td>
+          <td>{{ sale.customerName }} </td>
+          <td>{{ sale.salespersonName }} </td>
+          <td>{{ sale.salesDate }}</td>
+          <td>{{ sale.salespersonCommission }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

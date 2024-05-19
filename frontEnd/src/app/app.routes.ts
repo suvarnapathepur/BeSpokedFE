@@ -7,10 +7,12 @@ import { CustomerDialogComponent } from './customers/customer-dialog/customer-di
 import { SalespersonUpdateComponent } from './salesperson-list/salesperson-update/salesperson-update.component';
 import { SalespersonListComponent } from './salesperson-list/salesperson-list.component';
 import { CommissionReportComponent } from './commission-report/commission-report.component';
+import { SalesComponent } from './sales/sales.component';
 
 export const routes: Routes = [{ path: 'products', component: ProductsComponent}, 
                                {path: 'customers', component: CustomersComponent },
                                {path: 'salesperson', component: SalespersonListComponent },
+                               {path: 'sales', component: SalesComponent },
                                {path: 'quartelyreport', component: CommissionReportComponent },
                                { path: 'product/:id', component: ProductEditDialogComponent },
                                { path: 'customer/:id', component: CustomerDialogComponent },
