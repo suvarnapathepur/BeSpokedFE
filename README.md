@@ -4,12 +4,12 @@ This is the frontend part of the BeSpoked Bikes sales tracking application, buil
 
 ## Setup Instructions
 
-1. **Clone the Repository**:
-3. **Install Dependencies**:
+1. **Clone the Repository**:  git clone <repository_url>
+3. **Install Dependencies**: npm install
 Navigate to the project directory and run:
 
-3. **Development Server**:
-Run the development server:
+3. **Development Server**: 
+Run the development server:ng serve
 
 5.  **Open in Browser**:
 Open your browser and navigate to `http://localhost:4200/` to view the application.
