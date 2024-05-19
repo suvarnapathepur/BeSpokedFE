@@ -1,0 +1,26 @@
+<div>
+    <h2>Quarterly Commission Report</h2>
+    <label for="year">Year:</label>
+    <input type="number" id="year" [(ngModel)]="year">
+    <button (click)="loadReport()">Load Report</button>
+  
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Salesperson</th>
+          <th>Year</th>
+          <th>Quarter</th>
+          <th>Total Commission</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor ="let report of commissionReport">
+          <td>{{ report.salesperson }}</td>
+          <td>{{ report.year }}</td>
+          <td>{{ report.quarter }}</td>
+          <td>{{ report.totalCommission  }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

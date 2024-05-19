@@ -6,10 +6,12 @@ import { CustomersComponent } from './customers/customers.component';
 import { CustomerDialogComponent } from './customers/customer-dialog/customer-dialog.component';
 import { SalespersonUpdateComponent } from './salesperson-list/salesperson-update/salesperson-update.component';
 import { SalespersonListComponent } from './salesperson-list/salesperson-list.component';
+import { CommissionReportComponent } from './commission-report/commission-report.component';
 
 export const routes: Routes = [{ path: 'products', component: ProductsComponent}, 
                                {path: 'customers', component: CustomersComponent },
                                {path: 'salesperson', component: SalespersonListComponent },
+                               {path: 'quartelyreport', component: CommissionReportComponent },
                                { path: 'product/:id', component: ProductEditDialogComponent },
                                { path: 'customer/:id', component: CustomerDialogComponent },
                                { path: 'salesperson/:id', component: SalespersonUpdateComponent },

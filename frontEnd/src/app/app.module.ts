@@ -10,6 +10,7 @@ import { CustomerDialogComponent } from './customers/customer-dialog/customer-di
 import { CustomersComponent } from './customers/customers.component';
 import { SalespersonListComponent } from './salesperson-list/salesperson-list.component';
 import { SalespersonUpdateComponent } from './salesperson-list/salesperson-update/salesperson-update.component';
+import { CommissionReportComponent } from './commission-report/commission-report.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SalespersonUpdateComponent } from './salesperson-list/salesperson-updat
         CustomerDialogComponent,
         CustomersComponent,
         SalespersonListComponent,
-        SalespersonUpdateComponent
+        SalespersonUpdateComponent,
+        CommissionReportComponent
     ],
     imports: [
         BrowserModule,
